@@ -40,10 +40,9 @@ class Cd(dir: String) extends Command {
         else findEntryHelper(nextDir.asDirectory, path.tail)
       }
 
+      val tokens: List[String] = path.substring(1).split(Directory.SEPARATOR).toList
 
-    val tokens: List[String] = path.substring(1).split(Directory.SEPARATOR).toList
-
-    findEntryHelper(root, tokens)
+      findEntryHelper(root, tokens)
   }
 
 }

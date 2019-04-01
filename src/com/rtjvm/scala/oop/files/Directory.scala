@@ -19,12 +19,12 @@ class Directory(override val parentPath: String, override val name: String, val 
 
   def findEntry(entryName: String): DirEntry = {
     @tailrec
-    def findEntryHelper(name:String, contentList: List[DirEntry]): DirEntry =
+    def findEntryHelper(entryName: String, contentList: List[DirEntry]): DirEntry =
       if(contentList.isEmpty) null
-      else if (contentList.head.name.equals(name)) contentList.head
-      else findEntryHelper(name, contentList.tail)
+      else if (contentList.head.name.equals(entryName)) contentList.head
+      else findEntryHelper(entryName, contentList.tail)
 
-    findEntryHelper(name, contents)
+    findEntryHelper(entryName, contents)
   }
 
   def replaceEntry(entryName: String, newEntry: DirEntry): Directory =
