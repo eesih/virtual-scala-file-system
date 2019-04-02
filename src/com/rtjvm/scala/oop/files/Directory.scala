@@ -1,5 +1,7 @@
 package com.rtjvm.scala.oop.files
 
+import com.rtjvm.scala.oop.filesystem.FileSystemException
+
 import scala.annotation.tailrec
 
 class Directory(override val parentPath: String, override val name: String, val contents: List[DirEntry]) extends DirEntry(parentPath, name) {
